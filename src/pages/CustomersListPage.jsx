@@ -1,10 +1,10 @@
-import "./usersList.css";
+import "./customersList.css";
 import data from "../data/moretest.json";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function UsersListPage() {
-  const [users, setUsers] = useState(data);
+export default function CustomersListPage() {
+  const [customers, setCustomers] = useState(data);
   const [searchInput, setSearchInput] = useState("");
   const navigate = useNavigate();
 
@@ -12,11 +12,11 @@ export default function UsersListPage() {
   useEffect(() => {
     const sortedCustomers = [...data.customers].sort((a, b) => 
         a.user.first_name.localeCompare(b.user.first_name));
-    setUsers({customers:sortedCustomers})
+    setCustomers({customers:sortedCustomers})
     console.log(data);
   }, []);
 
-  const filtered = users.customers.filter((customer) =>
+  const filtered = customers.customers.filter((customer) =>
     (customer.user.first_name.toLowerCase()).includes(searchInput.toLowerCase()) ||
     (customer.user.last_name.toLowerCase()).includes(searchInput.toLowerCase()) ||
     (customer.user.phone.toLowerCase()).includes(searchInput.toLowerCase()) ||
@@ -24,9 +24,9 @@ export default function UsersListPage() {
   );
 
   return (
-    <div className="users_list_container">
-      <div className="users_list_content">
-        <div className="users_list_search">
+    <div className="customers_list_container">
+      <div className="customers_list_content">
+        <div className="customers_list_search">
           <h1>Customer Details</h1>
           <input
             type="text"
@@ -35,7 +35,7 @@ export default function UsersListPage() {
             onChange={(e) => setSearchInput(e.target.value)}
           />
         </div>
-        <table className="users_list_table">
+        <table className="customers_list_table">
           <thead>
             <tr>
               <th>Name</th>
@@ -47,7 +47,7 @@ export default function UsersListPage() {
             {filtered.map((customer) => (
               <tr
                 key={customer.id}
-                onClick={() => navigate(`/users/${customer.id}`)}
+                onClick={() => navigate(`/customers/${customer.id}`)}
               >
                 <td>{`${customer.user.first_name} ${customer.user.last_name}`}</td>
                 <td>{customer.user.phone}</td>

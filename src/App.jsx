@@ -1,19 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createContext } from "react";
 import Navbar from "./components/Navbar";
-import UsersListPage from "./pages/UsersListPage";
+import CustomersListPage from "./pages/CustomersListPage";
+import SpecificCustomerPage from "./pages/SpecificCustomerPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+const UsersContext = createContext();
+
 function App() {
+  // const [test, setTest] = useState("testing data");
   return (
     <>
       <Navbar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/users" element={<UsersListPage />} />
-          <Route path="/users/:id" element={<UsersListPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
+      {/* <UsersContext value={{ test, setTest }}> */}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/customers" element={<CustomersListPage />} />
+            <Route path="/customers/:id" element={<SpecificCustomerPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </BrowserRouter>
+      {/* </UsersContext> */}
     </>
   );
 }
