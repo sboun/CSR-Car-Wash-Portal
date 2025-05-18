@@ -1,0 +1,678 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "user": {
+        "first_name": "Adam",
+        "last_name": "Sandler",
+        "email": "adam.sandler@gmail.com",
+        "phone": "123-456-7890"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "GLS093",
+          "color": "Green",
+          "make": "Kia",
+          "model": "Niro",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": true,
+            "start_date": "2025-01-15",
+            "renewal_date": "2025-05-15"
+          }
+        },
+        {
+          "id": 2,
+          "license_plate": "KSH0193",
+          "color": "Black",
+          "make": "BMW",
+          "model": "i4",
+          "subscription": {
+            "type": "First Luv",
+            "active": false,
+            "start_date": "2023-08-01",
+            "cancel_date": "2024-02-01"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Visa",
+        "last_four": "6172",
+        "expiration": "2025-09",
+        "billing_zip": "90210"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_001",
+          "date": "2025-04-13",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "Visa 6172",
+          "amount": 13.99,
+          "status": "paid"
+        },
+        {
+          "transaction_id": "txn_002",
+          "date": "2025-03-13",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "Visa 6172",
+          "amount": 13.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "user": {
+        "first_name": "Jenny",
+        "last_name": "Nguyen",
+        "email": "jenny.n@gmail.com",
+        "phone": "555-321-7654"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "XYZ123",
+          "color": "Silver",
+          "make": "Toyota",
+          "model": "Camry",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": true,
+            "start_date": "2024-10-01",
+            "renewal_date": "2025-10-01"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "MasterCard",
+        "last_four": "4455",
+        "expiration": "2026-01",
+        "billing_zip": "10001"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_003",
+          "date": "2025-05-01",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "MasterCard 4455",
+          "amount": 13.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "user": {
+        "first_name": "Carlos",
+        "last_name": "Martinez",
+        "email": "carlos.m@gmail.com",
+        "phone": "415-789-1234"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "CAR789",
+          "color": "Red",
+          "make": "Tesla",
+          "model": "Model 3",
+          "subscription": {
+            "type": "First Luv",
+            "active": true,
+            "start_date": "2025-02-20",
+            "renewal_date": "2025-06-20"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Amex",
+        "last_four": "3001",
+        "expiration": "2027-03",
+        "billing_zip": "94110"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_004",
+          "date": "2025-04-20",
+          "description": "Monthly Subscription - First Luv",
+          "payment_method": "Amex 3001",
+          "amount": 19.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "user": {
+        "first_name": "Ayesha",
+        "last_name": "Patel",
+        "email": "ayesha.patel@example.com",
+        "phone": "646-000-8899"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "LOVE456",
+          "color": "White",
+          "make": "Honda",
+          "model": "Civic",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": false,
+            "start_date": "2022-06-01",
+            "cancel_date": "2023-06-01"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Discover",
+        "last_four": "9988",
+        "expiration": "2026-08",
+        "billing_zip": "11238"
+      },
+      "payment_history": []
+    },
+    {
+      "id": 5,
+      "user": {
+        "first_name": "Liam",
+        "last_name": "O'Connor",
+        "email": "liam.oconnor@outlook.com",
+        "phone": "312-555-0182"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "CHI777",
+          "color": "Blue",
+          "make": "Ford",
+          "model": "Escape",
+          "subscription": {
+            "type": "First Luv",
+            "active": true,
+            "start_date": "2024-09-10",
+            "renewal_date": "2025-09-10"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Visa",
+        "last_four": "2764",
+        "expiration": "2025-12",
+        "billing_zip": "60614"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_005",
+          "date": "2025-05-10",
+          "description": "Monthly Subscription - First Luv",
+          "payment_method": "Visa 2764",
+          "amount": 19.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "user": {
+        "first_name": "Mina",
+        "last_name": "Haddad",
+        "email": "mina.haddad@gmail.com",
+        "phone": "858-456-3322"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "SD2025",
+          "color": "Gray",
+          "make": "Hyundai",
+          "model": "Elantra",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": true,
+            "start_date": "2025-03-01",
+            "renewal_date": "2025-07-01"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "MasterCard",
+        "last_four": "8844",
+        "expiration": "2026-11",
+        "billing_zip": "92101"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_006",
+          "date": "2025-04-01",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "MasterCard 8844",
+          "amount": 13.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "user": {
+        "first_name": "Tyler",
+        "last_name": "Wong",
+        "email": "tylerw@protonmail.com",
+        "phone": "978-222-1199"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "TYL999",
+          "color": "Black",
+          "make": "Chevrolet",
+          "model": "Bolt EUV",
+          "subscription": {
+            "type": "First Luv",
+            "active": true,
+            "start_date": "2024-12-15",
+            "renewal_date": "2025-12-15"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Visa",
+        "last_four": "1122",
+        "expiration": "2027-01",
+        "billing_zip": "01845"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_007",
+          "date": "2025-05-15",
+          "description": "Monthly Subscription - First Luv",
+          "payment_method": "Visa 1122",
+          "amount": 19.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "user": {
+        "first_name": "Ava",
+        "last_name": "Hall",
+        "email": "ava.hall@example.com",
+        "phone": "987-808-8845"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "E3S54L",
+          "color": "Black",
+          "make": "Chevy",
+          "model": "Malibu",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": true,
+            "start_date": "2024-11-03",
+            "renewal_date": "2025-03-03"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Discover",
+        "last_four": "7790",
+        "expiration": "2027-04",
+        "billing_zip": "43967"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_008",
+          "date": "2024-12-03",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "Discover 7790",
+          "amount": 13.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "user": {
+        "first_name": "Noah",
+        "last_name": "Lee",
+        "email": "noah.lee@example.com",
+        "phone": "618-105-4952"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "PP7GO7",
+          "color": "Red",
+          "make": "Mazda",
+          "model": "CX-5",
+          "subscription": {
+            "type": "First Luv",
+            "active": false,
+            "start_date": "2024-05-28",
+            "cancel_date": "2024-09-25"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Visa",
+        "last_four": "6444",
+        "expiration": "2026-01",
+        "billing_zip": "80213"
+      },
+      "payment_history": []
+    },
+    {
+      "id": 10,
+      "user": {
+        "first_name": "Ethan",
+        "last_name": "Brown",
+        "email": "ethan.brown@example.com",
+        "phone": "468-783-8009"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "3ARNNB",
+          "color": "Gray",
+          "make": "Audi",
+          "model": "A3",
+          "subscription": {
+            "type": "First Luv",
+            "active": true,
+            "start_date": "2024-03-05",
+            "renewal_date": "2024-07-03"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Discover",
+        "last_four": "5230",
+        "expiration": "2026-10",
+        "billing_zip": "21764"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_010",
+          "date": "2024-04-04",
+          "description": "Monthly Subscription - First Luv",
+          "payment_method": "Discover 5230",
+          "amount": 19.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "user": {
+        "first_name": "James",
+        "last_name": "Lee",
+        "email": "james.lee@example.com",
+        "phone": "166-753-3754"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "L2MCY7",
+          "color": "Blue",
+          "make": "Ford",
+          "model": "Fusion",
+          "subscription": {
+            "type": "First Luv",
+            "active": true,
+            "start_date": "2024-06-26",
+            "renewal_date": "2024-10-24"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Discover",
+        "last_four": "4157",
+        "expiration": "2025-01",
+        "billing_zip": "90306"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_011",
+          "date": "2024-07-26",
+          "description": "Monthly Subscription - First Luv",
+          "payment_method": "Discover 4157",
+          "amount": 19.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "user": {
+        "first_name": "Benjamin",
+        "last_name": "Lopez",
+        "email": "benjamin.lopez@example.com",
+        "phone": "852-113-9656"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "P0Y9C6",
+          "color": "Red",
+          "make": "Mazda",
+          "model": "CX-5",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": true,
+            "start_date": "2024-07-19",
+            "renewal_date": "2024-11-16"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "MasterCard",
+        "last_four": "5551",
+        "expiration": "2025-03",
+        "billing_zip": "29316"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_013",
+          "date": "2024-08-18",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "MasterCard 5551",
+          "amount": 13.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "user": {
+        "first_name": "Benjamin",
+        "last_name": "Garcia",
+        "email": "benjamin.garcia@example.com",
+        "phone": "607-396-4925"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "UEOM42",
+          "color": "Blue",
+          "make": "Toyota",
+          "model": "RAV4",
+          "subscription": {
+            "type": "First Luv",
+            "active": true,
+            "start_date": "2024-12-06",
+            "renewal_date": "2025-04-05"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Discover",
+        "last_four": "3868",
+        "expiration": "2025-01",
+        "billing_zip": "50682"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_014",
+          "date": "2025-01-05",
+          "description": "Monthly Subscription - First Luv",
+          "payment_method": "Discover 3868",
+          "amount": 19.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "user": {
+        "first_name": "Sophie",
+        "last_name": "Lopez",
+        "email": "sophie.lopez@example.com",
+        "phone": "498-412-6925"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "R4JZEG",
+          "color": "Silver",
+          "make": "Tesla",
+          "model": "Model Y",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": false,
+            "start_date": "2024-06-13",
+            "cancel_date": "2024-10-11"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Discover",
+        "last_four": "6211",
+        "expiration": "2027-12",
+        "billing_zip": "32510"
+      },
+      "payment_history": []
+    },
+    {
+      "id": 15,
+      "user": {
+        "first_name": "Emma",
+        "last_name": "Brown",
+        "email": "emma.brown@example.com",
+        "phone": "497-801-5035"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "WYSP0S",
+          "color": "Silver",
+          "make": "Audi",
+          "model": "A3",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": true,
+            "start_date": "2024-05-09",
+            "renewal_date": "2024-09-06"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "Discover",
+        "last_four": "2040",
+        "expiration": "2027-05",
+        "billing_zip": "33952"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_016",
+          "date": "2024-06-08",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "Discover 2040",
+          "amount": 13.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "user": {
+        "first_name": "Sophie",
+        "last_name": "Lee",
+        "email": "sophie.lee@example.com",
+        "phone": "137-496-8632"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "5LGOMR",
+          "color": "Green",
+          "make": "Honda",
+          "model": "Accord",
+          "subscription": {
+            "type": "Lotta Luv",
+            "active": true,
+            "start_date": "2024-08-20",
+            "renewal_date": "2024-12-18"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "MasterCard",
+        "last_four": "4386",
+        "expiration": "2027-09",
+        "billing_zip": "44765"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_017",
+          "date": "2024-09-19",
+          "description": "Monthly Subscription - Lotta Luv",
+          "payment_method": "MasterCard 4386",
+          "amount": 13.99,
+          "status": "paid"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "user": {
+        "first_name": "Emma",
+        "last_name": "Kim",
+        "email": "emma.kim@example.com",
+        "phone": "743-789-8450"
+      },
+      "vehicles": [
+        {
+          "id": 1,
+          "license_plate": "H8BB1B",
+          "color": "Blue",
+          "make": "BMW",
+          "model": "X3",
+          "subscription": {
+            "type": "First Luv",
+            "active": true,
+            "start_date": "2024-10-01",
+            "renewal_date": "2025-01-29"
+          }
+        }
+      ],
+      "payment_method": {
+        "card_type": "MasterCard",
+        "last_four": "4371",
+        "expiration": "2025-07",
+        "billing_zip": "67468"
+      },
+      "payment_history": [
+        {
+          "transaction_id": "txn_012",
+          "date": "2024-10-31",
+          "description": "Monthly Subscription - First Luv",
+          "payment_method": "MasterCard 4371",
+          "amount": 19.99,
+          "status": "paid"
+        }
+      ]
+    }
+  ]
+}
