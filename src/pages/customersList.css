@@ -1,15 +1,15 @@
-.users_list_container {
+.customers_list_container {
   height: calc(100vh - 5.5vw);
   width:100vw;
   justify-items:center;
 }
 
-.users_list_content{
+.customers_list_content{
   /* background-color:lightgray; */
   padding: 3vw;
 }
 
-.users_list_search {
+.customers_list_search {
   /* background-color:grey; */
   display: flex;
   justify-content: space-between;
@@ -17,10 +17,10 @@
   width: auto;
 }
 
-.users_list_search input {
+.customers_list_search input {
   height:5vh;
 }
-.users_list_table {
+.customers_list_table {
   background-color: white;
   border-collapse: separate;
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
@@ -65,7 +65,7 @@ tbody tr {
 }
 
 
-.users_list_table tbody tr:nth-of-type(even) {
+.customers_list_table tbody tr:nth-of-type(even) {
   background-color: #4ab2d320;
 }
 
