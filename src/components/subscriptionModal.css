@@ -1,0 +1,27 @@
+.car_subscription {
+  padding-bottom: 10px;
+  border-bottom: 1px black solid;
+}
+
+.car_subscription input,
+b,
+select {
+  font-size: x-large;
+}
+
+.car_info_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 0.5fr 0.5fr 0.5fr;
+}
+
+.bottom_buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.bottom_right_buttons {
+  display: flex;
+  gap: 20px;
+}

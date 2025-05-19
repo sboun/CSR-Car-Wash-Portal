@@ -1,18 +1,27 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import CustomersListPage from "./pages/CustomersListPage";
 import SpecificCustomerPage from "./pages/SpecificCustomerPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import data from "./data/moretest.json";
 
-const UsersContext = createContext();
+export const CustomersContext = createContext();
 
 function App() {
-  // const [test, setTest] = useState("testing data");
+  const [customers, setCustomers] = useState(() => {
+    const localData = localStorage.getItem("customers");
+    return localData ? JSON.parse(localData) : data;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("customers", JSON.stringify(customers));
+    console.log(customers);
+  }, [customers]);
   return (
     <>
       <Navbar />
-      {/* <UsersContext value={{ test, setTest }}> */}
+      <CustomersContext.Provider value={{ customers, setCustomers }}>
         <BrowserRouter>
           <Routes>
             <Route path="/customers" element={<CustomersListPage />} />
@@ -20,7 +29,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
-      {/* </UsersContext> */}
+      </CustomersContext.Provider>
     </>
   );
 }

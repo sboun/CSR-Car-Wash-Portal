@@ -1,26 +1,35 @@
 import "./customersList.css";
-import data from "../data/moretest.json";
-import { useState, useEffect } from "react";
+import { useState, useMemo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { CustomersContext } from "../App";
 
 export default function CustomersListPage() {
-  const [customers, setCustomers] = useState(data);
   const [searchInput, setSearchInput] = useState("");
+  const { customers, setCustomers } = useContext(CustomersContext);
   const navigate = useNavigate();
 
   //sort names with first name A-Z
-  useEffect(() => {
-    const sortedCustomers = [...data.customers].sort((a, b) => 
-        a.user.first_name.localeCompare(b.user.first_name));
-    setCustomers({customers:sortedCustomers})
-    console.log(data);
-  }, []);
+  const sortedCustomers = useMemo(
+    () =>
+      [...customers.customers].sort((a, b) => {
+        const comparison = a.user.first_name.localeCompare(b.user.first_name);
+        return comparison
+          ? comparison
+          : a.user.last_name.localeCompare(b.user.last_name);
+      }),
+    [customers.customers]
+  );
 
-  const filtered = customers.customers.filter((customer) =>
-    (customer.user.first_name.toLowerCase()).includes(searchInput.toLowerCase()) ||
-    (customer.user.last_name.toLowerCase()).includes(searchInput.toLowerCase()) ||
-    (customer.user.phone.toLowerCase()).includes(searchInput.toLowerCase()) ||
-    (customer.user.email.toLowerCase()).includes(searchInput.toLowerCase())
+  const filtered = sortedCustomers.filter(
+    (customer) =>
+      customer.user.first_name
+        .toLowerCase()
+        .includes(searchInput.toLowerCase()) ||
+      customer.user.last_name
+        .toLowerCase()
+        .includes(searchInput.toLowerCase()) ||
+      customer.user.phone.toLowerCase().includes(searchInput.toLowerCase()) ||
+      customer.user.email.toLowerCase().includes(searchInput.toLowerCase())
   );
 
   return (
