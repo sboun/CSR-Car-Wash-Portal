@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <CustomersProvider>
+      <CustomersProvider> {/* Used to initialize and pass customers/setCustomers as context*/}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />

@@ -3,6 +3,7 @@ import data from "../data/moretest.json";
 import { CustomersContext } from './CustomersContext';
 
 
+// customers = object with customers as key, value is array of customer objects
 export function CustomersProvider({ children }) {
   //initialize customers witih localStorage or json data
   const [customers, setCustomers] = useState(() => {

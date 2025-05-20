@@ -1,6 +1,8 @@
 import "./notFound.css";
 import sadCar from "../assets/sadCar.png";
 
+
+//SHOW IMAGE AND "NOT FOUND" FOR ERROR OR PAGE NOT FOUND
 export default function NotFoundPage() {
   return (
     <div className="not_found_container">

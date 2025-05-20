@@ -2,6 +2,8 @@ import "./subscriptionModal.css";
 import { useState } from "react";
 import Modal from "./Modal";
 
+//MODAL FOR EDITING SUBSCRIPTIONS
+//FEATURES: EDIT CURRENT SUBS, TRANSFER/ADD/REMOVE SUB
 export default function SubscriptionModal({ vehicles, onSave, onClose }) {
   const [subscriptions, setSubscriptions] = useState(
     vehicles.map((v) => ({ ...v }))

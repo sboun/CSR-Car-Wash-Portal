@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { CustomersContext } from "../contexts/CustomersContext.jsx";
 
+// SHOW CUSTOMER INFO (FOR CONFIRMATION) AND TABLE SHOWING PAYMENT HISTORY
 export default function SpecificHistoryPage() {
   const { id } = useParams();
   const { customers } = useContext(CustomersContext);

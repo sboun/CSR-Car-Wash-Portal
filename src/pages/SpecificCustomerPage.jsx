@@ -5,12 +5,15 @@ import { CustomersContext } from "../contexts/CustomersContext.jsx";
 import SubscriptionModal from "../components/SubscriptionModal";
 import Modal from "../components/Modal";
 
+// SHOWS A CUSTOMERS INFO, ACTIVE SUBSCRIPTIONS, PAYMENT
+// FEATURES: READ/EDIT INFO AND SUBSCRIPTIONS, DELETE CUSTOMER OBEJCT, GO TO PAYMENT HISTORY PAGE (SpecificHistoryPage)
+// POP UP MODALS: EDIT SUBSCRIPTIONS, CONFIRMATION FOR DELETE ACCOUNT
 export default function SpecificCustomerPage() {
   const { id } = useParams();
   const { customers, setCustomers } = useContext(CustomersContext);
   const navigate = useNavigate();
-  const customer = customers.customers.find((c) => c.id === Number(id));
-  const activeVehicles = customer.vehicles.filter((v) => v.subscription.active);
+  const customer = customers.customers.find((c) => c.id === Number(id)); //use route parameter (id) to get specific customer object
+  const activeVehicles = customer.vehicles.filter((v) => v.subscription.active); //display only vehicles with active subscription
 
   const [firstName, setFirstName] = useState(customer.user.first_name);
   const [lastName, setLastName] = useState(customer.user.last_name);
@@ -25,11 +28,12 @@ export default function SpecificCustomerPage() {
   });
 
   const [editing, setEditing] = useState(false);
-  const [showSubsModal, setShowSubsModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showSubsModal, setShowSubsModal] = useState(false); //modal shown on active subscription edit button, allows editing subscription
+  const [showDeleteModal, setShowDeleteModal] = useState(false); //modal shown on delete account button, confirms deletion with yes/no
 
   // FUNCTIONS
-  //save changes to customers
+
+  //save customer info changes to customers context on save button click
   const handleSave = () => {
     const updated = customers.customers.map((c) =>
       c.id === customer.id
@@ -49,7 +53,7 @@ export default function SpecificCustomerPage() {
     setEditing(false);
   };
 
-  //restore customer info to fields before edit
+  //restore customer info to fields before edit on cancel button click
   const handleCancel = () => {
     setFirstName(originalData.firstName);
     setLastName(originalData.lastName);
@@ -58,12 +62,13 @@ export default function SpecificCustomerPage() {
     setEditing(false);
   };
 
-  //save initial before making changes
+  //save initial before making changes to user info on edit click
   const handleEdit = () => {
     setOriginalData({ firstName, lastName, email, phone });
     setEditing(true);
   };
 
+  //sent to subscription modal to handle save click
   const handleSubscriptionSave = (updatedVehicles) => {
     const updated = customers.customers.map((c) =>
       c.id === customer.id ? { ...c, vehicles: updatedVehicles } : c
@@ -72,6 +77,7 @@ export default function SpecificCustomerPage() {
     setShowSubsModal(false);
   };
 
+  //delete customer account when yes on confirmation modal clicked 
   const handleDelete = () => {
     const updated = customers.customers.filter((c) => c.id !== Number(id));
     setCustomers({ customers: updated });
@@ -83,7 +89,7 @@ export default function SpecificCustomerPage() {
       <div className="specific_customer_info">
         <div className="info">
           <b>First Name: </b>
-          {/* allow input editing */}
+          {/* allow user info editing on edit click*/}
           {editing ? (
             <input
               value={firstName}
@@ -141,6 +147,7 @@ export default function SpecificCustomerPage() {
       <div className="specific_customer_info2">
         <div className="specific_customer_subscription">
           <b>Active Subscriptions</b>
+          {/* display line for each vehicle with active subscription */}
           {activeVehicles.map((vehicle) => (
             <div key={vehicle.id}>
               <p>

@@ -23,6 +23,13 @@
   padding: 2vw 1vw 2vw 1vw;
 }
 
+.info b,
+.specific_customer_info2 b {
+  font-size: 1.8vw;
+  height: 4vh;
+  align-content: center;
+}
+
 .info p,
 .info input {
   margin: 0;
@@ -30,6 +37,7 @@
   height: 4vh;
   border: 1px solid transparent;
   flex: 1;
+  align-content: center;
 }
 
 .info input {
@@ -53,7 +61,7 @@ button {
   background-color: #4ab2d3;
   border: 0;
   cursor: pointer;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .specific_customer_info2 {
@@ -67,13 +75,12 @@ button {
 
 .specific_customer_subscription,
 .specific_customer_payment {
-  background: #4ab2d340;  
-  border: 1px solid #4ab2d3;   
-  border-radius: 10px;  
-  padding: 20px 20px 0 20px;        
+  background: #4ab2d340;
+  border: 1px solid #4ab2d3;
+  border-radius: 10px;
+  padding: 20px 20px 0 20px;
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
-
 
 .specific_customer_buttons {
   display: flex;

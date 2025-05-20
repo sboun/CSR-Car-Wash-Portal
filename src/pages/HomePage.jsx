@@ -2,6 +2,7 @@ import "./home.css";
 import { useContext, useMemo } from "react";
 import { CustomersContext } from "../contexts/CustomersContext.jsx";
 
+//SHOW INFO CARDS WITH # CUSTOMERS AND # OF ACTIVE SUBSCRIPTIONS
 export default function HomePage() {
   const { customers } = useContext(CustomersContext);
 
