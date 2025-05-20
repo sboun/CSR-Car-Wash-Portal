@@ -1,7 +1,7 @@
 import "./customersList.css";
 import { useState, useMemo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { CustomersContext } from "../App";
+import { CustomersContext } from "../contexts/CustomersContext.jsx";
 
 export default function CustomersListPage() {
   const [searchInput, setSearchInput] = useState("");

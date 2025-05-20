@@ -1,7 +1,7 @@
 import "./specificHistory.css";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
-import { CustomersContext } from "../App";
+import { CustomersContext } from "../contexts/CustomersContext.jsx";
 
 export default function SpecificHistoryPage() {
   const { id } = useParams();

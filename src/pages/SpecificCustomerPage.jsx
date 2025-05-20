@@ -1,7 +1,7 @@
 import "./specificCustomer.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { CustomersContext } from "../App";
+import { CustomersContext } from "../contexts/CustomersContext.jsx";
 import SubscriptionModal from "../components/SubscriptionModal";
 import Modal from "../components/Modal";
 
