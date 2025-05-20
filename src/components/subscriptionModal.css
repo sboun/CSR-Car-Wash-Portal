@@ -15,17 +15,22 @@ select {
   grid-template-rows: 0.5fr 0.5fr 0.5fr;
 }
 
-.button_gap{
-  display:flex;
-  gap:20px;
-  white-space:nowrap;
+.car_info {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.button_gap {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
 }
 
 .bottom_buttons {
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
-  gap:20px;
+  gap: 20px;
 }
 
 .bottom_right_buttons {
