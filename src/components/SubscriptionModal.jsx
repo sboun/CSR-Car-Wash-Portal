@@ -7,7 +7,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
     vehicles.map((v) => ({ ...v }))
   );
 
-  
+  // update vehicle obj
   const updateVehicle = (i, field, value) => {
     setSubscriptions((prev) => {
       const next = [...prev];
@@ -19,6 +19,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
     });
   };
 
+  // update nested subscription in vehicle obj
   const updateSubscription = (i, field, value) => {
     setSubscriptions((prev) => {
       const next = [...prev];
@@ -33,6 +34,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
     });
   };
 
+  // add empty vehicle object
   const addSub = () => {
     setSubscriptions((prev) => [
       ...prev,
@@ -50,6 +52,23 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
         },
       },
     ]);
+  };
+
+  //Add new vehicle object with original transfers sub info
+  const transferSub = (i) => {
+    setSubscriptions((prev) => {
+      const copySubscription = prev[i].subscription;
+      return [
+        ...prev,
+        {
+          id: Date.now(),
+          make: "Transfer",
+          model: "Transfer",
+          license_plate: "Transfer",
+          subscription: { ...copySubscription },
+        },
+      ];
+    });
   };
 
   const removeSub = (i) => {
@@ -152,6 +171,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
             </div>
 
             <div className="button_gap">
+              <button onClick={() => transferSub(i)}>Transfer Subscription</button>
               <button onClick={() => removeSub(i)}>Remove</button>
             </div>
           </div>

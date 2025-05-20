@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage.jsx";
 import CustomersListPage from "./pages/CustomersListPage";
 import SpecificCustomerPage from "./pages/SpecificCustomerPage";
 import SpecificHistoryPage from "./pages/SpecificHistoryPage";
@@ -13,6 +14,7 @@ function App() {
       <CustomersProvider>
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route path="/customers" element={<CustomersListPage />} />
             <Route path="/customers/:id" element={<SpecificCustomerPage />} />
             <Route

@@ -21,17 +21,16 @@ export default function CustomersListPage() {
   );
 
   //filters searched values
-  const filtered = sortedCustomers.filter(
-    (customer) =>
-      customer.user.first_name
-        .toLowerCase()
-        .includes(searchInput.toLowerCase()) ||
-      customer.user.last_name
-        .toLowerCase()
-        .includes(searchInput.toLowerCase()) ||
-      customer.user.phone.toLowerCase().includes(searchInput.toLowerCase()) ||
-      customer.user.email.toLowerCase().includes(searchInput.toLowerCase())
-  );
+  const filteredCustomers = useMemo(() => {
+    const search = searchInput.toLowerCase();
+    return sortedCustomers.filter(
+      (customer) =>
+        customer.user.first_name.toLowerCase().includes(search) ||
+        customer.user.last_name.toLowerCase().includes(search) ||
+        customer.user.phone.toLowerCase().includes(search) ||
+        customer.user.email.toLowerCase().includes(search)
+    );
+  }, [sortedCustomers, searchInput]);
 
   return (
     <div className="customers_list_container">
@@ -55,7 +54,7 @@ export default function CustomersListPage() {
           </thead>
           <tbody>
             {/* table row created for each customer */}
-            {filtered.map((customer) => (
+            {filteredCustomers.map((customer) => (
               <tr
                 key={customer.id}
                 onClick={() => navigate(`/customers/${customer.id}`)}

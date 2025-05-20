@@ -1,0 +1,27 @@
+.home_container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 5.5vw);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url("../assets/lovBackground.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.home_card_container{
+  display:flex;
+  flex-direction:row;
+  gap: 5vw;
+}
+
+.home_card{
+  background-color:#4ab2d3;
+  width:13vw;
+  padding:0 0.5vw 0.5vw 0.5vw;
+  border: 1px solid #263e6e;
+  border-radius:10px;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}

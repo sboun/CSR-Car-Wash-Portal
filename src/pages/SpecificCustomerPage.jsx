@@ -16,6 +16,7 @@ export default function SpecificCustomerPage() {
   const [lastName, setLastName] = useState(customer.user.last_name);
   const [email, setEmail] = useState(customer.user.email);
   const [phone, setPhone] = useState(customer.user.phone);
+  //Original data stored for when user cancels changes
   const [originalData, setOriginalData] = useState({
     firstName: customer.user.first_name,
     lastName: customer.user.last_name,
@@ -28,26 +29,27 @@ export default function SpecificCustomerPage() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   // FUNCTIONS
+  //save changes to customers
   const handleSave = () => {
-    const updatedCustomers = customers.customers.map((c) => {
-      if (c.id === Number(id)) {
-        return {
-          ...c,
-          user: {
-            ...c.user,
-            first_name: firstName,
-            last_name: lastName,
-            email: email,
-            phone: phone,
-          },
-        };
-      }
-      return c;
-    });
-    setCustomers({ customers: updatedCustomers });
+    const updated = customers.customers.map((c) =>
+      c.id === customer.id
+        ? {
+            ...c,
+            user: {
+              ...c.user,
+              first_name: firstName,
+              last_name: lastName,
+              email: email,
+              phone: phone,
+            },
+          }
+        : c
+    );
+    setCustomers({ customers: updated });
     setEditing(false);
   };
 
+  //restore customer info to fields before edit
   const handleCancel = () => {
     setFirstName(originalData.firstName);
     setLastName(originalData.lastName);
@@ -56,6 +58,7 @@ export default function SpecificCustomerPage() {
     setEditing(false);
   };
 
+  //save initial before making changes
   const handleEdit = () => {
     setOriginalData({ firstName, lastName, email, phone });
     setEditing(true);
@@ -80,6 +83,7 @@ export default function SpecificCustomerPage() {
       <div className="specific_customer_info">
         <div className="info">
           <b>First Name: </b>
+          {/* allow input editing */}
           {editing ? (
             <input
               value={firstName}
@@ -156,7 +160,7 @@ export default function SpecificCustomerPage() {
             {customer.payment_method.card_type}{" "}
             {customer.payment_method.last_four}
           </p>
-          {/* empty lines to make buttons line up */}
+          {/* empty lines to make payment history and subscription edit buttons line up */}
           {activeVehicles.length > 1 &&
             Array.from({ length: activeVehicles.length - 1 }).map((_, i) => (
               <p key={i} className="empty_filler">
