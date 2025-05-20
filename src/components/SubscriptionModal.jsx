@@ -3,18 +3,32 @@ import { useState } from "react";
 import Modal from "./Modal";
 
 export default function SubscriptionModal({ vehicles, onSave, onClose }) {
-  //subscription clone
   const [subscriptions, setSubscriptions] = useState(
     vehicles.map((v) => ({ ...v }))
   );
 
-  const updateField = (i, path, value) => {
+  
+  const updateVehicle = (i, field, value) => {
     setSubscriptions((prev) => {
       const next = [...prev];
-      let o = next[i];
-      const lastKey = path[path.length - 1];
-      const target = path.slice(0, -1).reduce((acc, k) => acc[k], o);
-      target[lastKey] = value;
+      next[i] = {
+        ...next[i],
+        [field]: value,
+      };
+      return next;
+    });
+  };
+
+  const updateSubscription = (i, field, value) => {
+    setSubscriptions((prev) => {
+      const next = [...prev];
+      next[i] = {
+        ...next[i],
+        subscription: {
+          ...next[i].subscription,
+          [field]: value,
+        },
+      };
       return next;
     });
   };
@@ -23,7 +37,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
     setSubscriptions((prev) => [
       ...prev,
       {
-        id: Date.now(), // temporary key
+        id: Date.now(),
         make: "",
         model: "",
         license_plate: "",
@@ -39,9 +53,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
   };
 
   const removeSub = (i) => {
-    setSubscriptions((prev) =>
-      prev.filter((subscription, index) => index !== i)
-    );
+    setSubscriptions((prev) => prev.filter((_, index) => index !== i));
   };
 
   return (
@@ -58,7 +70,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
               <b>Make: </b>
               <input
                 value={v.make}
-                onChange={(e) => updateField(i, ["make"], e.target.value)}
+                onChange={(e) => updateVehicle(i, ["make"], e.target.value)}
               />
             </div>
 
@@ -66,7 +78,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
               <b>Model:</b>
               <input
                 value={v.model}
-                onChange={(e) => updateField(i, ["model"], e.target.value)}
+                onChange={(e) => updateVehicle(i, ["model"], e.target.value)}
               />
             </div>
 
@@ -75,7 +87,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
               <input
                 value={v.license_plate}
                 onChange={(e) =>
-                  updateField(i, ["license_plate"], e.target.value)
+                  updateVehicle(i, ["license_plate"], e.target.value)
                 }
               />
             </div>
@@ -85,7 +97,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
               <select
                 defaultValue={v.subscription.type}
                 onChange={(e) =>
-                  updateField(i, ["subscription", "type"], e.target.value)
+                  updateSubscription(i, ["type"], e.target.value)
                 }
               >
                 <option value="True Luv">True Luv</option>
@@ -101,7 +113,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
                 type="checkbox"
                 checked={v.subscription.active}
                 onChange={(e) =>
-                  updateField(i, ["subscription", "active"], e.target.checked)
+                  updateSubscription(i, ["active"], e.target.checked)
                 }
               />
             </div>
@@ -112,7 +124,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
                 type="date"
                 value={v.subscription.start_date}
                 onChange={(e) =>
-                  updateField(i, ["subscription", "start_date"], e.target.value)
+                  updateSubscription(i, ["start_date"], e.target.value)
                 }
               />
             </div>
@@ -123,11 +135,7 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
                 type="date"
                 value={v.subscription.renewal_date || ""}
                 onChange={(e) =>
-                  updateField(
-                    i,
-                    ["subscription", "renewal_date"],
-                    e.target.value
-                  )
+                  updateSubscription(i, ["renewal_date"], e.target.value)
                 }
               />
             </div>
@@ -138,16 +146,12 @@ export default function SubscriptionModal({ vehicles, onSave, onClose }) {
                 type="date"
                 value={v.subscription.cancel_date || ""}
                 onChange={(e) =>
-                  updateField(
-                    i,
-                    ["subscription", "cancel_date"],
-                    e.target.value
-                  )
+                  updateSubscription(i, ["cancel_date"], e.target.value)
                 }
               />
             </div>
 
-            <div>
+            <div className="button_gap">
               <button onClick={() => removeSub(i)}>Remove</button>
             </div>
           </div>

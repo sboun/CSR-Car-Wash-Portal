@@ -6,26 +6,30 @@
 /* grid is  2x5*/
 .specific_customer_info {
   background: #4ab2d340;
+  border: 1px #4ab2d3 solid;
   padding: 0 20px 0 20px;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 0.5fr 0.5fr 0.5fr;
+  grid-template-rows: auto auto auto;
   column-gap: 1vw;
-  font-size: 1.8vw;
-  border: 1px #4ab2d3 solid;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
 
 .info {
   display: flex;
   gap: 1vw;
   align-items: center;
+  padding: 2vw 1vw 2vw 1vw;
 }
 
 .info p,
-input {
+.info input {
+  margin: 0;
   font-size: 1.8vw;
+  height: 4vh;
   border: 1px solid transparent;
+  flex: 1;
 }
 
 .info input {
@@ -49,12 +53,11 @@ button {
   background-color: #4ab2d3;
   border: 0;
   cursor: pointer;
+  border-radius:10px;
 }
 
 .specific_customer_info2 {
-  padding: 20px 20px 0 20px;
   margin-top: 20px;
-  border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 0.5fr;
@@ -62,25 +65,33 @@ button {
   font-size: 1.8vw;
 }
 
-.specific_customer_subscription {
-  /* background: lightgray;
-  border: 1px black solid;
-  border-radius:5px; */
+.specific_customer_subscription,
+.specific_customer_payment {
+  background: #4ab2d340;  
+  border: 1px solid #4ab2d3;   
+  border-radius: 10px;  
+  padding: 0px 20px 0 20px;        
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 }
 
-.specific_customer_payment {
-  /* background: lightgray;
-  border: 1px black solid;
-  border-radius:5px; */
-}
 
 .specific_customer_buttons {
   display: flex;
   flex-direction: row;
-  padding-left: 20px;
+  padding-top: 20px;
   gap: 20px;
 }
 
-.white_filler {
-  color: white;
+.empty_filler {
+  color: transparent;
 }
+
+.delete_modal_buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* yes/no button */
+/* .delete_modal_buttons button:last-child {
+  background-color: white;
+} */

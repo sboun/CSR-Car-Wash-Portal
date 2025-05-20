@@ -5,7 +5,7 @@ import { CustomersContext } from "../App";
 
 export default function CustomersListPage() {
   const [searchInput, setSearchInput] = useState("");
-  const { customers, setCustomers } = useContext(CustomersContext);
+  const { customers } = useContext(CustomersContext);
   const navigate = useNavigate();
 
   //sort names with first name A-Z
@@ -20,6 +20,7 @@ export default function CustomersListPage() {
     [customers.customers]
   );
 
+  //filters searched values
   const filtered = sortedCustomers.filter(
     (customer) =>
       customer.user.first_name
@@ -44,7 +45,7 @@ export default function CustomersListPage() {
             onChange={(e) => setSearchInput(e.target.value)}
           />
         </div>
-        <table className="customers_list_table">
+        <table className="table_styling">
           <thead>
             <tr>
               <th>Name</th>
@@ -53,6 +54,7 @@ export default function CustomersListPage() {
             </tr>
           </thead>
           <tbody>
+            {/* table row created for each customer */}
             {filtered.map((customer) => (
               <tr
                 key={customer.id}
@@ -63,11 +65,6 @@ export default function CustomersListPage() {
                 <td>{customer.user.email}</td>
               </tr>
             ))}
-            {/* <tr>
-              <td>Joe Alpha</td>
-              <td>123-123-0123</td>
-              <td>joe@gmail.com</td>
-            </tr> */}
           </tbody>
         </table>
       </div>
