@@ -4,7 +4,7 @@ import CustomersListPage from "./pages/CustomersListPage";
 import SpecificCustomerPage from "./pages/SpecificCustomerPage";
 import SpecificHistoryPage from "./pages/SpecificHistoryPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import { CustomersProvider } from "./contexts/CustomersContext.jsx";
+import { CustomersProvider } from "./contexts/CustomersProvider.jsx";
 
 function App() {
   return (

@@ -1,7 +1,7 @@
-import { createContext, useState, useEffect } from "react";
+import {useState, useEffect } from "react";
 import data from "../data/moretest.json";
+import { CustomersContext } from './CustomersContext';
 
-export const CustomersContext = createContext();
 
 export function CustomersProvider({ children }) {
   const [customers, setCustomers] = useState(() => {
